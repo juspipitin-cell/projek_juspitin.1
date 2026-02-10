@@ -1,0 +1,54 @@
+{% load humanize %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cetak Transaksi</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #000; padding: 8px; }
+        th { background-color: #eee; }
+        h2, h4 { text-align: center; margin: 0; }
+        .total { text-align: right; font-weight: bold; margin-top: 10px; }
+        .btn-print { margin: 20px 0; }
+        @media print {
+            .btn-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<h2>Nota Transaksi</h2>
+<h4>Pelanggan: {{ transaksi.pelanggan }}</h4>
+<h4>Tanggal: {{ transaksi.tanggal|date:"d M Y H:i" }}</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in penjualan_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ item.produk.nama }}</td>
+            <td>Rp {{ item.produk.harga|intcomma }}</td>
+            <td>{{ item.jumlah }}</td>
+            <td>Rp {{ item.total_harga|intcomma }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p class="total">Total Transaksi: Rp {{ total_harga|intcomma }}</p>
+
+<button class="btn-print" onclick="window.print()">🖨️ Cetak</button>
+
+</body>
+</html>
