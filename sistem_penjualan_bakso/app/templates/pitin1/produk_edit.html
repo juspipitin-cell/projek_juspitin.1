@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Edit Produk</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="nama">Nama Produk</label>
+        <input type="text" name="nama" id="nama" value="{{ produk.nama }}" required>
+
+        <label for="harga">Harga (Rp)</label>
+        <input type="number" name="harga" id="harga" value="{{ produk.harga }}" required>
+
+        <label for="stok_tambah">Stok Tambahan</label>
+        <input type="number" name="stok_tambah" id="stok_tambah" min="0" value="0" required>
+
+        <button type="submit">Simpan Perubahan</button>
+    </form>
+
+    <br>
+    <a href="{% url 'admin_tampil_produk' %}" style="color: var(--primary); font-weight: 600;">← Kembali ke Daftar Produk</a>
+</div>
+{% endblock %}

@@ -1,0 +1,219 @@
+/* ======== VARIABEL WARNA DASAR ======== */
+:root {
+    --primary: #1abc9c;
+    --primary-dark: #16a085;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --background: #f2f4f8;
+    --white: #ffffff;
+    --text: #333;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ======== GLOBAL STYLES ======== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+/* ======== NAVBAR ======== */
+nav {
+    background-color: var(--dark);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--light);
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* ======== CONTAINER ======== */
+.container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 3rem auto;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px var(--shadow);
+}
+
+/* ======== TYPOGRAPHY ======== */
+h1 {
+    color: var(--dark);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--dark);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* ======== FORM STYLES ======== */
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* ======== BUTTON ======== */
+button,
+input[type="submit"] {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ======== TOMBOL EDIT & HAPUS ======== */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.action-buttons a {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.action-buttons .edit {
+    background-color: #3498db;
+}
+
+.action-buttons .edit:hover {
+    background-color: #2980b9;
+}
+
+.action-buttons .delete {
+    background-color: #e74c3c;
+}
+
+.action-buttons .delete:hover {
+    background-color: #c0392b;
+}
+
+/* ======== TABLE STYLES ======== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    background-color: var(--primary);
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+}
+
+/* ===================== PRINT MODE ===================== */
+@media print {
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    table th, table td {
+        border: 1px solid #000;
+        padding: 6px 10px;
+        text-align: left;
+    }
+
+    table thead {
+        background-color: #f0f0f0 !important;
+    }
+}
+

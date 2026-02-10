@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load humanize %}
+
+<h2>Transaksi Penjualan</h2>
+
+{% if error %}
+<p style="color:red">{{ error }}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <label>Nama Pelanggan:</label><br>
+    <input type="text" name="pelanggan" required><br><br>
+
+    {% for p in produk %}
+        <div style="margin-bottom: 1rem;">
+            <strong>{{ p.nama }}</strong> (Stok: {{ p.stok }}) - Rp {{ p.harga|intcomma }}<br>
+            <input type="hidden" name="produk" value="{{ p.id }}">
+            Jumlah: <input type="number" name="jumlah" min="0" placeholder="0">
+        </div>
+    {% endfor %}
+
+    <button type="submit">Simpan Transaksi</button>
+</form>
+{% endblock %}
